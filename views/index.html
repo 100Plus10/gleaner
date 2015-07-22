@@ -19,14 +19,20 @@
                 </div>
             </div>
             <!-- group list -->
-            <ul class="group-list">
-                <li><a>{{cat:1}}<span class="notes-count">(120)</span></a></li>
-                <li><a>成长日记<span class="notes-count">(10)</span></a></li>
-                <li><a>技术再要记录<span class="notes-count">(20)</span></a></li>
+            <ul id="group-list" class="group-list">
+                <li><a class="group-item">常用分组<span class="notes-count">(120)</span></a></li>
+                <li><a class="group-item">成长日记<span class="notes-count">(10)</span></a></li>
+                <li><a class="group-item">技术克说记录<span class="notes-count">(20)</span></a></li>
             </ul>
             <!-- group list footer -->
-            <div class="add-group">
-
+            <div class="group-list-footer">
+                <!-- add button -->
+                <div class="add-group">
+                    <div id="add-btn" class="add-group-btn" title="添加分组"></div>
+                    <input id="new-group-name" class="name-input" />
+                </div>
+                <!-- delete button -->
+                <div id="delete-group-btn" class="delete-group-btn"></div>
             </div>
 
         </div>
@@ -42,5 +48,7 @@
         </div>
     </div>
 
+<script src="../lib/jquery2_1_4.js" type="application/javascript"></script>
+<script src="../scripts/main.js" type="application/javascript"></script>
 </body>
 </html>

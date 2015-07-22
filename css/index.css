@@ -120,6 +120,11 @@ html, body {
     border-left: 2px solid #fff;*/
 }
 
+.group-list a.active {
+    background-color: #555;
+    color: #fff;
+}
+
 .notes-count {
     color: #0868ca;
     padding-right: 10px;
@@ -128,7 +133,64 @@ html, body {
 
 /*** add note ***/
 .add-group {
+    width: 100%;
+    height: 40px;
+}
 
+.add-group-btn {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    float: left;
+    background-image: url("../images/add-button.png");
+    text-align: center;
+    background-size: 40px 40px;
+    cursor: pointer;
+}
+
+/** 旋转动画Start **/
+@keyframes pound-in {
+    from { transform: none; }
+    to { transform:rotate(90deg); }
+}
+
+@keyframes pound-out {
+    from { transform: none; }
+    to { transform:rotate(-90deg); }
+}
+
+.add-btn-click-in {
+    animation: pound-in .5s forwards;
+}
+
+.add-btn-click-out {
+    animation: pound-out .5s forwards;
+} /** 旋转动画END **/
+
+.name-input {
+    width: 0;
+    height: 30px;
+    font-size: 16px;
+    border-radius: 5px;
+    text-align: right;
+    color: #555;
+    font-weight: bold;
+    margin: 5px 5px;
+    float: left;
+    border: 0;
+    padding: 0;
+}
+
+/** 删除按钮 **/
+.delete-group-btn {
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin-left: 10px;
+    margin-top: 10px;
+    background-image: url("../images/delete-button.png");
+    background-size: 40px 40px;
+    cursor: pointer;
 }
 
 
