@@ -10,12 +10,14 @@ window.onload = function(){
         menuList: $("#group-list"),
         lightDefaultItem: function(){
             menuLight.menuItems.eq(0).addClass("active");
+            $("#group-name").text(menuLight.menuItems.eq(0).text());
         },
         clickMenu: function() {
             menuLight.menuItems.click(function(){
                 menuLight.menuItems.removeClass("active");
                 $(this).addClass("active");
-            })
+                $("#group-name").text($(this).text());
+            });
         }
     };
 
@@ -30,6 +32,7 @@ window.onload = function(){
                 border: "1px solid #aaa"
             });
             addGroup.addBtn.addClass("add-btn-click-in");
+            addGroup.nameInput.focus();
         },
         fadeOut: function(){
             addGroup.nameInput.animate({
@@ -65,6 +68,7 @@ window.onload = function(){
         deleteBtn: $("#delete-group-btn"),
         activeMenu: $("a.active"),
         deleteBtnClick: function(){
+            //点击删除处理函数
             deleteGroup.deleteBtn.click(function(){
                 if(!deleteGroup.deleteState){
                     deleteGroup.deleteBtn.css("background-image", "url('../images/delete-button-ok.png')");
@@ -74,14 +78,20 @@ window.onload = function(){
                     deleteGroup.deleteState = false;
                     deleteGroup.activeMenu = $("a.active").eq(0);
 
+                    //删除分组的代码
                     alert(deleteGroup.activeMenu.html());
 
                     menuLight.menuItems.eq(0).addClass("active");
                 }
             });
+
+            //失去焦点重置删除状态
+            deleteGroup.deleteBtn.mouseout(function(){
+                deleteGroup.deleteBtn.css("background-image", "url('../images/delete-button.png')");
+                deleteGroup.deleteState = false;
+            });
         }
     }
-
 
     //实例化菜单高亮类
     var menuLightObj = Object.create(menuLight);
@@ -95,6 +105,31 @@ window.onload = function(){
     //实例化删除分组类
     var deleteGroupObj = Object.create(deleteGroup);
     deleteGroupObj.deleteBtnClick();
+
+
+    //笔记列表类
+    var noteList = {
+        noteItems: $(".note-item"),
+        lightDefaultItem: function(){
+            if(noteList.noteItems.length > 0){
+                noteList.noteItems.eq(0).addClass("list-item-active");
+            }
+        },
+        noteItemsClick: function(){
+            noteList.noteItems.click(function(){
+                //点击笔记列表 添加选中样式
+                noteList.noteItems.removeClass("list-item-active");
+                $(this).addClass("list-item-active");
+
+                //点击笔记列表 右侧显示笔记内容
+            });
+        }
+    }
+
+    //实例化笔记本列表类
+    var noteListObj = Object.create(noteList);
+    noteListObj.lightDefaultItem();
+    noteListObj.noteItemsClick();
 }
 
 
