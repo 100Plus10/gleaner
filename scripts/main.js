@@ -1,4 +1,5 @@
 /**
+<<<<<<< HEAD
  * Created by Mask-W on 2015/7/22.
  */
 
@@ -135,4 +136,10 @@ window.onload = function(){
 
 
 
+=======
+ * Created by hywilliam on 7/21/15.
+ */
+var gleaner = new Data();
+var notebooks = gleaner.getNotebooks();
+>>>>>>> hywilliam
 
