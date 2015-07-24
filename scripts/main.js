@@ -142,14 +142,14 @@ window.onload = function(){
 
 
 
-<<<<<<< HEAD
-=======
- * Created by hywilliam on 7/21/15.
- */
-var gleaner = new Data();
-var notebooks = gleaner.getNotebooks();
->>>>>>> hywilliam
-=======
-//>>>>>>> e8a9eff0e67ce7a4163f3dc4c43ff739ad9ca749
->>>>>>> hywilliam
+//<<<<<<< HEAD
+//=======
+// * Created by hywilliam on 7/21/15.
+// */
+//var gleaner = new Data();
+//var notebooks = gleaner.getNotebooks();
+//>>>>>>> hywilliam
+//=======
+////>>>>>>> e8a9eff0e67ce7a4163f3dc4c43ff739ad9ca749
+//>>>>>>> hywilliam
 
