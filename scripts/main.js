@@ -1,11 +1,17 @@
 /**
 <<<<<<< HEAD
+<<<<<<< HEAD
  * Created by Mask-W on 2015/7/22.
+=======
+ * Created by hywilliam on 7/21/15.
+>>>>>>> hywilliam
  */
+//=======
+// * Created by Mask-W on 2015/7/22.
+// */
 
 window.onload = function(){
-
-    //µã»÷ÊµÏÖ²Ëµ¥¸ßÁÁ
+    //ï¿½ï¿½ï¿½Êµï¿½Ö²Ëµï¿½ï¿½ï¿½ï¿½ï¿½
     var menuLight = {
         menuItems: $(".group-item"),
         menuList: $("#group-list"),
@@ -22,7 +28,7 @@ window.onload = function(){
         }
     };
 
-    //Ìí¼Ó·Ö×é
+    //ï¿½ï¿½Ó·ï¿½ï¿½ï¿½
     var addGroup = {
         inputState: false,
         addBtn: $("#add-btn"),
@@ -41,7 +47,7 @@ window.onload = function(){
                 border: "0px solid #aaa"
             }, function(){
                 if(addGroup.nameInput.val() != null && addGroup.nameInput.val() != ""){
-                    //Ìí¼Ó·Ö×é
+                    //ï¿½ï¿½Ó·ï¿½ï¿½ï¿½
                     location.reload();
                 }
             })
@@ -49,7 +55,7 @@ window.onload = function(){
         },
         addBtnClick: function(){
             addGroup.addBtn.click(function(){
-                //Èç¹ûÊäÈë¿òÒÑ¾­µ¯³ö
+                //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½
                 if(addGroup.inputState){
                     addGroup.addBtn.removeClass("add-btn-click-in");
                     addGroup.fadeOut();
@@ -63,13 +69,13 @@ window.onload = function(){
         }
     }
 
-    //É¾³ý·Ö×é
+    //É¾ï¿½ï¿½ï¿½ï¿½ï¿½
     var deleteGroup = {
         deleteState: false,
         deleteBtn: $("#delete-group-btn"),
         activeMenu: $("a.active"),
         deleteBtnClick: function(){
-            //µã»÷É¾³ý´¦Àíº¯Êý
+            //ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½?ï¿½ï¿½
             deleteGroup.deleteBtn.click(function(){
                 if(!deleteGroup.deleteState){
                     deleteGroup.deleteBtn.css("background-image", "url('../images/delete-button-ok.png')");
@@ -79,14 +85,14 @@ window.onload = function(){
                     deleteGroup.deleteState = false;
                     deleteGroup.activeMenu = $("a.active").eq(0);
 
-                    //É¾³ý·Ö×éµÄ´úÂë
+                    //É¾ï¿½ï¿½ï¿½ï¿½ï¿½Ä´ï¿½ï¿½ï¿½
                     alert(deleteGroup.activeMenu.html());
 
                     menuLight.menuItems.eq(0).addClass("active");
                 }
             });
 
-            //Ê§È¥½¹µãÖØÖÃÉ¾³ý×´Ì¬
+            //Ê§È¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½×´Ì¬
             deleteGroup.deleteBtn.mouseout(function(){
                 deleteGroup.deleteBtn.css("background-image", "url('../images/delete-button.png')");
                 deleteGroup.deleteState = false;
@@ -94,21 +100,21 @@ window.onload = function(){
         }
     }
 
-    //ÊµÀý»¯²Ëµ¥¸ßÁÁÀà
+    //Êµï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     var menuLightObj = Object.create(menuLight);
     menuLightObj.lightDefaultItem();
     menuLightObj.clickMenu();
 
-    //ÊµÀý»¯Ìí¼Ó·Ö×éÀà
+    //Êµï¿½ï¿½ï¿½ï¿½Ó·ï¿½ï¿½ï¿½ï¿½ï¿½
     var addGroupObj = Object.create(addGroup);
     addGroupObj.addBtnClick();
 
-    //ÊµÀý»¯É¾³ý·Ö×éÀà
+    //Êµï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     var deleteGroupObj = Object.create(deleteGroup);
     deleteGroupObj.deleteBtnClick();
 
 
-    //±Ê¼ÇÁÐ±íÀà
+    //ï¿½Ê¼ï¿½ï¿½Ð±ï¿½ï¿½ï¿½
     var noteList = {
         noteItems: $(".note-item"),
         lightDefaultItem: function(){
@@ -118,16 +124,16 @@ window.onload = function(){
         },
         noteItemsClick: function(){
             noteList.noteItems.click(function(){
-                //µã»÷±Ê¼ÇÁÐ±í Ìí¼ÓÑ¡ÖÐÑùÊ½
+                //ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½Ð±ï¿½ ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½Ê½
                 noteList.noteItems.removeClass("list-item-active");
                 $(this).addClass("list-item-active");
 
-                //µã»÷±Ê¼ÇÁÐ±í ÓÒ²àÏÔÊ¾±Ê¼ÇÄÚÈÝ
+                //ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½Ð±ï¿½ ï¿½Ò²ï¿½ï¿½ï¿½Ê¾ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½
             });
         }
     }
 
-    //ÊµÀý»¯±Ê¼Ç±¾ÁÐ±íÀà
+    //Êµï¿½ï¿½Ê¼Ç±ï¿½ï¿½Ð±ï¿½ï¿½ï¿½
     var noteListObj = Object.create(noteList);
     noteListObj.lightDefaultItem();
     noteListObj.noteItemsClick();
@@ -136,10 +142,14 @@ window.onload = function(){
 
 
 
+<<<<<<< HEAD
 =======
  * Created by hywilliam on 7/21/15.
  */
 var gleaner = new Data();
 var notebooks = gleaner.getNotebooks();
+>>>>>>> hywilliam
+=======
+//>>>>>>> e8a9eff0e67ce7a4163f3dc4c43ff739ad9ca749
 >>>>>>> hywilliam
 
