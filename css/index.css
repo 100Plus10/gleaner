@@ -289,7 +289,8 @@ html, body {
 }
 
 .note-content-edit,
-.note-content-delete {
+.note-content-delete,
+.note-content-save {
     width: 40px;
     height: 40px;
     float: right;
@@ -314,7 +315,13 @@ html, body {
     background-image: url("../images/delete-button-note.png");
 }
 
+.note-content-save {
+    margin-right: 10px;
+    background-image: url("../images/save-button-note.png");
+}
+
 .note-content-edit:hover,
+.note-content-save:hover,
 .note-content-delete:hover {
     /* older safari/Chrome browsers */
     -webkit-opacity: 1;

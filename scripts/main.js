@@ -4,7 +4,7 @@
 
 window.onload = function(){
 
-    //µã»÷ÊµÏÖ²Ëµ¥¸ßÁÁ
+    //click to menu light
     var menuLight = {
         menuItems: $(".group-item"),
         menuList: $("#group-list"),
@@ -21,7 +21,7 @@ window.onload = function(){
         }
     };
 
-    //Ìí¼Ó·Ö×é
+    //add group
     var addGroup = {
         inputState: false,
         addBtn: $("#add-btn"),
@@ -40,7 +40,7 @@ window.onload = function(){
                 border: "0px solid #aaa"
             }, function(){
                 if(addGroup.nameInput.val() != null && addGroup.nameInput.val() != ""){
-                    //Ìí¼Ó·Ö×é
+                    //add group
                     location.reload();
                 }
             })
@@ -48,7 +48,7 @@ window.onload = function(){
         },
         addBtnClick: function(){
             addGroup.addBtn.click(function(){
-                //Èç¹ûÊäÈë¿òÒÑ¾­µ¯³ö
+                //if input out
                 if(addGroup.inputState){
                     addGroup.addBtn.removeClass("add-btn-click-in");
                     addGroup.fadeOut();
@@ -62,13 +62,13 @@ window.onload = function(){
         }
     }
 
-    //É¾³ý·Ö×é
+    //delete group
     var deleteGroup = {
         deleteState: false,
         deleteBtn: $("#delete-group-btn"),
         activeMenu: $("a.active"),
         deleteBtnClick: function(){
-            //µã»÷É¾³ý´¦Àíº¯Êý
+            //click delete handle function
             deleteGroup.deleteBtn.click(function(){
                 if(!deleteGroup.deleteState){
                     deleteGroup.deleteBtn.css("background-image", "url('../images/delete-button-ok.png')");
@@ -78,14 +78,14 @@ window.onload = function(){
                     deleteGroup.deleteState = false;
                     deleteGroup.activeMenu = $("a.active").eq(0);
 
-                    //É¾³ý·Ö×éµÄ´úÂë
+                    //É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä´ï¿½ï¿½ï¿½
                     alert(deleteGroup.activeMenu.html());
 
                     menuLight.menuItems.eq(0).addClass("active");
                 }
             });
 
-            //Ê§È¥½¹µãÖØÖÃÉ¾³ý×´Ì¬
+            //lost focus reset delete state
             deleteGroup.deleteBtn.mouseout(function(){
                 deleteGroup.deleteBtn.css("background-image", "url('../images/delete-button.png')");
                 deleteGroup.deleteState = false;
@@ -93,21 +93,21 @@ window.onload = function(){
         }
     }
 
-    //ÊµÀý»¯²Ëµ¥¸ßÁÁÀà
+    //menu light
     var menuLightObj = Object.create(menuLight);
     menuLightObj.lightDefaultItem();
     menuLightObj.clickMenu();
 
-    //ÊµÀý»¯Ìí¼Ó·Ö×éÀà
+    //add group
     var addGroupObj = Object.create(addGroup);
     addGroupObj.addBtnClick();
 
-    //ÊµÀý»¯É¾³ý·Ö×éÀà
+    //delete group
     var deleteGroupObj = Object.create(deleteGroup);
     deleteGroupObj.deleteBtnClick();
 
 
-    //±Ê¼ÇÁÐ±íÀà
+    //note list class
     var noteList = {
         noteItems: $(".note-item"),
         lightDefaultItem: function(){
@@ -117,16 +117,16 @@ window.onload = function(){
         },
         noteItemsClick: function(){
             noteList.noteItems.click(function(){
-                //µã»÷±Ê¼ÇÁÐ±í Ìí¼ÓÑ¡ÖÐÑùÊ½
+                //click note list to add selected style
                 noteList.noteItems.removeClass("list-item-active");
                 $(this).addClass("list-item-active");
 
-                //µã»÷±Ê¼ÇÁÐ±í ÓÒ²àÏÔÊ¾±Ê¼ÇÄÚÈÝ
+                //click note list to show right note content
             });
         }
     }
 
-    //ÊµÀý»¯±Ê¼Ç±¾ÁÐ±íÀà
+    //note list
     var noteListObj = Object.create(noteList);
     noteListObj.lightDefaultItem();
     noteListObj.noteItemsClick();

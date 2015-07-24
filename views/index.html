@@ -20,9 +20,13 @@
             </div>
             <!-- group list -->
             <ul id="group-list" class="group-list">
-                <li><a class="group-item">常用分组<span class="notes-count">(120)</span></a></li>
-                <li><a class="group-item">成长日记<span class="notes-count">(10)</span></a></li>
-                <li><a class="group-item">技术克说记录<span class="notes-count">(20)</span></a></li>
+                {{if admin}}
+                {{include 'admin_content'}}
+
+                {{each list}}
+                <div>{{$index}}. {{$value.user}}</div>
+                {{/each}}
+                {{/if}}
             </ul>
             <!-- group list footer -->
             <div class="group-list-footer">
@@ -105,6 +109,7 @@
             <div class="note-content-top">
                 <div class="note-content-delete"></div>
                 <div class="note-content-edit"></div>
+                <div class="note-content-save"></div>
             </div>
 
             <!-- note content -->
@@ -117,5 +122,15 @@
 
 <script src="../lib/jquery2_1_4.js" type="application/javascript"></script>
 <script src="../scripts/main.js" type="application/javascript"></script>
+    <script id="group" type="text/plain">
+         <li><a class="group-item">{groups}<span class="notes-count">(120)</span></a></li>
+    </script>
+
+<script type="javascript">
+    window.onload = function(){
+        var groupTem = new Template("group");
+
+    }
+</script>
 </body>
 </html>
