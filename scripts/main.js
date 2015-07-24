@@ -1,5 +1,5 @@
-/**
- * Created by Mask-W on 2015/7/22.
+﻿/**
+ * Created by hywilliam on 7/21/15.
  */
 
 window.onload = function(){
@@ -78,7 +78,6 @@ window.onload = function(){
                     deleteGroup.deleteState = false;
                     deleteGroup.activeMenu = $("a.active").eq(0);
 
-                    //ɾ������Ĵ���
                     alert(deleteGroup.activeMenu.html());
 
                     menuLight.menuItems.eq(0).addClass("active");
@@ -103,6 +102,9 @@ window.onload = function(){
     addGroupObj.addBtnClick();
 
     //delete group
+    var addGroupObj = Object.create(addGroup);
+    addGroupObj.addBtnClick();
+
     var deleteGroupObj = Object.create(deleteGroup);
     deleteGroupObj.deleteBtnClick();
 
@@ -122,6 +124,9 @@ window.onload = function(){
                 $(this).addClass("list-item-active");
 
                 //click note list to show right note content
+                noteList.noteItems.removeClass("list-item-active");
+                $(this).addClass("list-item-active");
+
             });
         }
     }
@@ -135,4 +140,6 @@ window.onload = function(){
 
 
 
-
+// Created by hywilliam on 7/21/15.
+//var gleaner = new Data();
+//var notebooks = gleaner.getNotebooks();
