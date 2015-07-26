@@ -114,19 +114,25 @@
         <!-- note content -->
         <div class="note-content">
             <input id="note-content-title" class="note-content-title" type="text"/>
-            <textarea id="note-content-main" class="note-content-main"></textarea>
+            <!--<textarea id="note-content-main" class="note-content-main"></textarea>-->
+            <textarea id="text-input" class="note-content-main" cols="30" rows="10">Type **Markdown** here.</textarea>
+            <div id="preview" class="preview"></div>
         </div>
     </div>
 </div>
 
 <!--========================第三方类库==================================-->
 <script src="../lib/jquery2_1_4.js" type="application/javascript"></script>
+<script src="../lib/marked.js" type="application/javascript"></script>
+<script src="../scripts/preview.js" type="application/javascript"></script>
 <!--=========================数据处理脚本文件============================-->
 <script src="../scripts/model.js"></script>
 
 <script src="../data/data.js"></script>
 <!--=======================功能性脚本文件==============================-->
 <script src="../scripts/main.js" type="application/javascript"></script>
+<script src="../lib/marked.js" type="application/javascript"></script>
+
     <script id="group" type="text/plain">
          <li><a class="group-item">{groups}<span class="notes-count">(120)</span></a></li>
     </script>

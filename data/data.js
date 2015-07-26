@@ -48,7 +48,7 @@ function initData(data) {
         var thisnb = newNotebook(val);
         notes.forEach(function (val, j) {
             thisnb.newNote(val).setContent(content);
-//            console.log(thisnb);
+            console.log(thisnb);
         });
     });
     return data;
