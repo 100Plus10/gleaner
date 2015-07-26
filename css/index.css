@@ -1,0 +1,362 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/bg01.jpg");
+    background-size: 120% 120%;
+}
+
+.main {
+    width: 90%;
+    height: 96%;
+    margin: 0 auto;
+    position: relative;
+    top: 2%;
+}
+
+.main-left,
+.main-middle,
+.main-right {
+    height: 100%;
+    float: left;
+    overflow: hidden;
+}
+
+.main-left {
+    width: 17%;
+    height: 100%;
+    background-color: #15181e;
+    box-shadow: 5px 0 5px #aaa;
+    position: relative;
+    z-index: 4;
+}
+
+.main-middle {
+    width: 23%;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 5px 0 5px #aaa;
+    position: relative;
+    z-index: 3;
+}
+
+.main-right {
+    width: 60%;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 5px 0 5px #aaa;
+    position: relative;
+    z-index: 2;
+    /*background-color: #0868ca;*/
+} /***** 主要框架样式END *****/
+
+/***********************
+     内部样式
+***********************/
+/*** left ***/
+.left-head {
+    width: 100%;
+    height: 120px;
+    border-bottom: 1px solid #555;
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+    border: 3px solid #fff;
+    background-color: #0868ca;
+    border-radius: 50%;
+    margin: 0 auto;
+    position: relative;
+    top: 20px;
+}
+
+.logo-world {
+    font-size: 40px;
+    text-align: center;
+    color: #fff;
+    padding: 13px 0;
+    margin: 0;
+}
+
+/*** group list ***/
+.group-list {
+    width: 100%;
+    height: 300px;
+    padding: 10px 0 0 0;
+    margin: 0;
+    list-style: none;
+}
+
+.group-list li {
+    width: 100%;
+}
+
+.group-list li a {
+    display: block;
+    text-align: left;
+    font-size: 14px;
+    color: #ccc;
+    padding: 6px 0px 6px 15px;
+    text-decoration: none;
+    cursor: pointer;
+}
+.group-list li a:hover {
+    border-left: 2px solid #fff;
+    padding-left: 13px;
+    /*background-color: #111216;*/
+    color: #fff;
+}
+
+.group-list li:hover:before {
+    content: "";
+    float: left;
+    margin-top: 8px;
+    border-top: 8px solid transparent;
+    border-left: 5px solid #fff;
+    border-bottom: 8px solid transparent;
+    /*content: "";
+    margin-left: -2px;
+    border-left: 2px solid #fff;*/
+}
+
+.group-list a.active {
+    background-color: #555;
+    color: #fff;
+}
+
+.notes-count {
+    color: #0868ca;
+    padding-right: 10px;
+    float: right;
+}
+
+/*** add note ***/
+.add-group {
+    width: 100%;
+    height: 40px;
+}
+
+.add-group-btn {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    float: left;
+    background-image: url("../images/add-button.png");
+    text-align: center;
+    background-size: 40px 40px;
+    cursor: pointer;
+}
+
+/** 旋转动画Start **/
+@keyframes pound-in {
+    from { transform: none; }
+    to { transform:rotate(90deg); }
+}
+
+@keyframes pound-out {
+    from { transform: none; }
+    to { transform:rotate(-90deg); }
+}
+
+.add-btn-click-in {
+    animation: pound-in .5s forwards;
+}
+
+.add-btn-click-out {
+    animation: pound-out .5s forwards;
+} /** 旋转动画END **/
+
+.name-input {
+    width: 0;
+    height: 30px;
+    font-size: 16px;
+    border-radius: 5px;
+    text-align: right;
+    color: #555;
+    font-weight: bold;
+    margin: 5px 5px;
+    float: left;
+    border: 0;
+    padding: 0;
+}
+
+/** 删除按钮 **/
+.delete-group-btn {
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin-left: 10px;
+    margin-top: 10px;
+    background-image: url("../images/delete-button.png");
+    background-size: 40px 40px;
+    cursor: pointer;
+}
+
+/***********************
+     分类下的笔记列表
+***********************/
+.note-list-top {
+    width: 100%;
+    height: 20%;
+}
+
+.group-name {
+    color: #555;
+    margin: 0px;
+    padding: 30px 15px;
+    text-align: left;
+}
+
+.new-note-btn {
+    width: 100px;
+    height: 30px;
+    background-color: #0868ca;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 20px;
+    border-radius: 6px;
+    border: 0;
+}
+
+.new-note-btn-icon {
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+/** 笔记列表 **/
+.note-list {
+    width: 100%;
+    height: 75%;
+    margin: 0;
+    padding: 20px 0 0 0;
+    list-style: none;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.note-item {
+    width: 90%;
+    height: 108px;
+    margin: 0 auto;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.note-list li.list-item-active {
+    /*border: 1px solid #0868ca;*/
+    background-color: #15181e;
+    border-radius: 6px;
+    color: #fff;
+}
+
+.note-item-title {
+    float: left;
+    margin: 0;
+    color: #0868ca;
+    padding-top: 10px;
+}
+
+.note-item-date {
+    margin: 0;
+    padding: 12px 15px 0px 0;
+    color: #0868ca;
+    font-size: 12px;
+    float: right;
+}
+
+.note-item-content {
+    height: 70px;
+    float: left;
+    margin: 0;
+    display: block;
+    color: #aaa;
+    padding-top: 5px;
+    padding-bottom: 0;
+    font-size: 12px;
+    text-indent: 25px;
+    overflow: hidden;
+}
+
+/*********************
+      笔记内容样式
+*********************/
+.note-content-top {
+    width: 100%;
+    height: 50px;
+}
+
+.note-content-edit,
+.note-content-delete {
+    width: 40px;
+    height: 40px;
+    float: right;
+    margin-top: 10px;
+    background-image: url("../images/edit-button-note.png");
+    background-size: 40px 40px;
+    cursor: pointer;
+    /* older safari/Chrome browsers */
+    -webkit-opacity: 0.8;
+    /* Netscape and Older than Firefox 0.9 */
+    -moz-opacity: 0.8;
+    /* Safari 1.x (pre WebKit!) 老式khtml内核的Safari浏览器*/
+    -khtml-opacity: 0.8;
+    /* IE9 + etc...modern browsers */
+    opacity: 0.8;
+    /* IE 4-9 */
+    filter:alpha(opacity=80);
+}
+
+.note-content-delete {
+    margin: 10px 30px 0 10px;
+    background-image: url("../images/delete-button-note.png");
+}
+
+.note-content-edit:hover,
+.note-content-delete:hover {
+    /* older safari/Chrome browsers */
+    -webkit-opacity: 1;
+    /* Netscape and Older than Firefox 0.9 */
+    -moz-opacity: 1;
+    /* Safari 1.x (pre WebKit!) 老式khtml内核的Safari浏览器*/
+    -khtml-opacity: 1;
+    /* IE9 + etc...modern browsers */
+    opacity: 1;
+    /* IE 4-9 */
+    filter:alpha(opacity=100);
+}
+
+/** 笔记内容 **/
+.note-content {
+    width: 90%;
+    margin: 10px auto;
+    position: relative;
+    height: 100%;
+}
+
+.note-content-title {
+    width: 100%;
+    height: 35px;
+    border-radius: 6px 6px 0 0;
+    border: 1px solid #aaa;
+    border-bottom: 0;
+    font-size: 18px;
+    font-weight: bolder;
+    color: #000;
+    padding: 0 6px;
+}
+
+.note-content-main {
+    width: 100%;
+    height: 80%;
+    border-radius: 0 0 6px 6px;
+    border: 1px solid #aaa;
+    padding: 6px;
+    color: #555;
+    margin-top: 0;
+}
+
+
+

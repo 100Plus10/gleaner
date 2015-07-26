@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>烂笔头-gleaner</title>
+
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+</head>
+<body>
+
+<!-- Main DIV -->
+<div class="main">
+    <!-- notes group list -->
+    <div class="main-left">
+        <!-- logo -->
+        <div class="left-head">
+            <div class="logo">
+                <h1 class="logo-world">烂</h1>
+            </div>
+        </div>
+        <!-- group list -->
+        <ul id="group-list" class="group-list">
+            <li><a class="group-item">常用分组<span class="notes-count">(120)</span></a></li>
+            <li><a class="group-item">成长日记<span class="notes-count">(10)</span></a></li>
+            <li><a class="group-item">技术克说记录<span class="notes-count">(20)</span></a></li>
+        </ul>
+        <!-- group list footer -->
+        <div class="group-list-footer">
+            <!-- add button -->
+            <div class="add-group">
+                <div id="add-btn" class="add-group-btn" title="添加分组"></div>
+                <input id="new-group-name" class="name-input" maxlength="20"/>
+            </div>
+            <!-- delete button -->
+            <div id="delete-group-btn" class="delete-group-btn"></div>
+        </div>
+
+    </div>
+
+    <!-- notes title list -->
+    <div class="main-middle">
+        <!-- note list top -->
+        <div class="note-list-top">
+            <h2 id="group-name" class="group-name"></h2>
+            <button id="new-note-btn" class="new-note-btn" type="button">
+                <span class="new-note-btn-icon">+</span>
+                新建笔记
+            </button>
+        </div>
+
+        <!-- note list -->
+        <ul class="note-list">
+            <li class="note-item">
+                <div class="note-item-top">
+                    <h5 class="note-item-title">我的一个笔记</h5>
+
+                    <p class="note-item-date">2015-07-22</p>
+                </div>
+                <p class="note-item-content">
+                    我们要让每段文字开头缩进，并且可以控制缩进距离我使用text-indent缩进单词。
+                    如果不想使用text-indent样式进行缩进，我可以使用空格来实现，
+                    但需要多打几个html空格字符“&nbsp;”实现空格字符占位缩进，
+                    你可以详细了解html多空格字符应用。
+                </p>
+            </li>
+            <li class="note-item">
+                <div class="note-item-top">
+                    <h5 class="note-item-title">我的第一个笔记</h5>
+
+                    <p class="note-item-date">2015-07-22</p>
+                </div>
+                <p class="note-item-content">
+                    团队协作完成 支持Markdown格式的编辑及预览
+                    除了jQuery、Markdown解析以外，不允许使用任何框架
+                    功能可自定义，做得越多收获越多
+                </p>
+            </li>
+            <li class="note-item">
+                <div class="note-item-top">
+                    <h5 class="note-item-title">我的第一个笔记</h5>
+
+                    <p class="note-item-date">2015-07-22</p>
+                </div>
+                <p class="note-item-content">
+                    团队协作完成 支持Markdown格式的编辑及预览
+                    除了jQuery、Markdown解析以外，不允许使用任何框架
+                    功能可自定义，做得越多收获越多
+                </p>
+            </li>
+            <li class="note-item">
+                <div class="note-item-top">
+                    <h5 class="note-item-title">我的第一个笔记</h5>
+
+                    <p class="note-item-date">2015-07-22</p>
+                </div>
+                <p class="note-item-content">
+                    使用CSS单词：text-indent 作用：
+                    设置对象中的文本的缩进，后面也跟具体数值和单位text-indent DIV+CSS示例：
+                    div { text-indent : 25px; }
+                    即定义对象内开头的文字往后缩进25px
+                </p>
+            </li>
+        </ul>
+    </div>
+
+    <!-- notes content -->
+    <div class="main-right">
+        <!-- note tool bar -->
+        <div class="note-content-top">
+            <div class="note-content-delete"></div>
+            <div class="note-content-edit"></div>
+        </div>
+
+        <!-- note content -->
+        <div class="note-content">
+            <input id="note-content-title" class="note-content-title" type="text"/>
+            <textarea id="note-content-main" class="note-content-main"></textarea>
+        </div>
+    </div>
+</div>
+
+<!--========================第三方类库==================================-->
+<script src="../lib/jquery2_1_4.js" type="application/javascript"></script>
+<!--=========================数据处理脚本文件============================-->
+<script src="../scripts/model.js"></script>
+
+<script src="../data/data.js"></script>
+<!--=======================功能性脚本文件==============================-->
+<script src="../scripts/main.js" type="application/javascript"></script>
+</body>
+</html>
