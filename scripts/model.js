@@ -62,6 +62,7 @@ Notebook.prototype = {
 
     // 新建笔记
     newNote    : function (name) {
+        // name = string
         var note = new Note(name);
         // 将新增的笔记加入noteStore末尾，并写入tag标记
         note.tag = this.noteNum;
@@ -91,7 +92,13 @@ Notebook.prototype = {
  *               Notebook operate Method
  * ==================================================
  * */
-
+$('button').on('click', newNotebook($('input').val()));
+$('button').on('click',function(){
+    $('div').html('<li>'+val+'</li>').appendTo($());
+});
+setInterval(function(){
+    localStorage[data] = data;
+}, 3000);
 // 新增笔记本的便捷方法
 function newNotebook(name) {
     return data[data.push(new Notebook(name)) - 1];
