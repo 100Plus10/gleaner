@@ -93,11 +93,12 @@ Notebook.prototype = {
  * ==================================================
  * */
 $('button').on('click', newNotebook($('input').val()));
-$('button').on('click',function(){
-    $('div').html('<li>'+val+'</li>').appendTo($());
+$('button').on('click', function(){
+    $('div').html('<li>'+ val +'</li>').appendTo($());
 });
 setInterval(function(){
-    localStorage[data] = data;
+    debugger;
+    localStorage["data"] = "12";
 }, 3000);
 // 新增笔记本的便捷方法
 function newNotebook(name) {
