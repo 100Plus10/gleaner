@@ -1,30 +1,23 @@
 /**
- * Created by ÓÀÒ¹ on 2015/7/21.
+ * Created by ï¿½ï¿½Ò¹ on 2015/7/21.
  */
-function showCategory(){
-    this.showCate = function(content){
-
-        return content;
-    }
-
-}
 
 
 
-//ÊµÏÖÄ£°å
-function Template(contentId){
 
-    //×îºó×ª»»µÄ html ½á¹û
+//Êµï¿½ï¿½Ä£ï¿½ï¿½
+function Template(contentId, groupName, noteTitle){
+
+    //ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ html ï¿½ï¿½ï¿½
     var resultHtml = [];
-
 
     var content = document.getElementById(contentId).textContent;
 
-    //{i} ²»ÄÜÊ¹ÓÃ  ÓÃÓÚÁÐ±í
+    //{i} ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
     var re =  /\{\s*([a-zA-Z\.\_0-9()]+)\s*\}/g;
     var result = re.exec(content);
     //alert("sdf");
-    //·ûºÏ {string} ¸ñÊ½µÄ×Ö·û´®Êý×é
+    //ï¿½ï¿½ï¿½ï¿½ {string} ï¿½ï¿½Ê½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     var re =  /\{\s*([a-zA-Z\.\_0-9()]+)\s*\}/g;
     var allResult = content.match(re);
  //   alert(allResult);
@@ -39,36 +32,32 @@ function Template(contentId){
     //content = content.replace(allResult[0],1);
 
     this.render = function(model){
-        //·ûºÏ {string} ¸ñÊ½µÄ×Ö·û´®Êý×é
+        //ï¿½ï¿½ï¿½ï¿½ {string} ï¿½ï¿½Ê½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         var re =  /\{\s*([a-zA-Z\u4E00-\u9FA5\.\_0-9()]+)\s*\}/g;
         var allResult = content.match(re);
+        //å­˜å‚¨  å†…å®¹
+        var contentConOne = content;
        // alert(allResult);
         for(i = 0;i<allResult.length ; i++){
 
-
             if(allResult[i] == "{eachNoteBook}"){
-
-                for(n = 0;n < data.length ;n++){
+                for(n = 0;n < model.length ;n++){
+                    var contentCon = contentConOne;
                     if(n == 0){
-
-                        content = content.replace(allResult[0],data[i].getName());
-                        if(content.contains("{NoteNum}")){
-                            content = content.replace("{NoteNum}",data[i].noteNum);
+                        content = content.replace(allResult[0],model[n].name);
+                        if(content.indexOf("{NoteNum}") != -1){
+                            content = content.replace("{NoteNum}",model[n].noteNum);
                         }
-
                     }else{
-                        content = content + content.replace(allResult[0],data[i].getName());
-                        if(content.contains("{NoteNum}")){
-                            content = content.replace("{NoteNum}",data[i].noteNum);
+                        contentCon = contentCon.replace(allResult[0],model[n].name);
+                        if(contentCon.indexOf("{NoteNum}") != -1){
+                            contentCon = contentCon.replace("{NoteNum}",model[n].noteNum);
                         }
+                        content = content +contentCon;
                     }
-
                 }
 
-
-
                 resultHtml.push(content);
-
                 var html =resultHtml.join("");
                // alert(html);
 
@@ -76,35 +65,36 @@ function Template(contentId){
             }
 
 
-            if(allResult[i].contains("{eachNote}")){
-
-
+            if(allResult[i].indexOf("{eachNote}") != -1){
                 var re =  /\{\s*([a-zA-Z\u4E00-\u9FA5\.\_0-9()]+)\s*\}/g;
+                //Note ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                var name = re.exec("{" + groupName + "}");
 
-                //Note ·ÖÀà µÄÃû×Ö
-                var name = re.exec(allResult[i + 1]);
+                //name = groupName;
 
-
-                //Ìæ»»µô {eachNote} Óë ·ÖÀà{³£ÓÃ·Ö×é}
+                //ï¿½æ»»ï¿½ï¿½ {eachNote} ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½{ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½}
                 content = content.replace(allResult[0],"");
                 content = content.replace(allResult[1],"");
 
+                var contentforNext  = content;
+                for(n = 0; n < model.length; n++){
+                    if(model[n].name == name[1]){
 
-                for(n = 0;n < data.length ;n++){
-                    if(data[n].name == name[1]){
-                        for(var p = 0;p < data[n].noteStore.length;p++){
+                        if(model[n].noteStore.length == 0){
+                            content = null;
+                        }
 
-
+                        for(var p = 0;p < model[n].noteStore.length;p++){
                             if(p == 0){
                                 for(var a = 2;a < allResult.length ;a++){
 
                                     var re =/\{\s*([a-zA-Z\.\_0-9()]+)\s*\}/g;
                                     var str = re.exec(allResult[a]);
-                                    if(data[n].noteStore[p][str[1]].length <= 100){
-                                        content = content.replace(allResult[a],data[n].noteStore[p][str[1]]);
-                                    }else{
+
+                                    content = content.replace(allResult[a],model[n].noteStore[p][str[1]]);
+                                    /*else{
                                         content = content.replace(allResult[a],data[n].noteStore[p][str[1]].substring(0,100));
-                                    }
+                                    }*/
 
 
                                   //  alert(content);
@@ -112,46 +102,54 @@ function Template(contentId){
                                 }
 
                             }else{
-                                var re =/\{\s*([a-zA-Z\.\_0-9()]+)\s*\}/g;
-                                var str = re.exec(allResult[a]);
-                                if(data[n].noteStore[p][str[1]].length <= 100){
-                                    content = content  + content.replace(allResult[a],data[n].noteStore[p][str[1]]);
-                                }else{
-                                    content = content  + content.replace(allResult[a],data[n].noteStore[p][str[1]].substring(0,100));
-                                    content = content.replace(allResult[a],data[n].noteStore[p][str[1]].substring(0,100));
+
+                                var contentfor = contentforNext;
+                                for(a = 2;a < allResult.length ;a++){
+
+                                    var re =/\{\s*([a-zA-Z\.\_0-9()]+)\s*\}/g;
+                                    var str = re.exec(allResult[a]);
+
+                                    contentfor = contentfor.replace(allResult[a],model[n].noteStore[p][str[1]]);
+                                    //alert(model[n].noteStore[p][str[1]]);
+                                    /*else{
+                                     content = content.replace(allResult[a],data[n].noteStore[p][str[1]].substring(0,100));
+                                     }*/
+
+
+                                    //  alert(content);
+
                                 }
 
-
-                            }
-
+                                content = content + contentfor;
 
 
+                               /* var re =/\{\s*([a-zA-Z\.\_0-9()]+)\s*\}/g;
+                                var str = re.exec(allResult[a]);
+                                content = content  + content.replace(allResult[a],model[n].noteStore[p][str[1]]);
+                           */ }
                         }
 
                     }
                 }
 
                 resultHtml.push(content);
-
                 var html =resultHtml.join("");
                 // alert(html);
-
                 return html;
-
             }
             if(allResult[i] == "{content}"){
                 var noteBook = null;
                 content = content.replace(allResult[0],"");
                 content = content.replace(allResult[1],"");
 
-                for(var j = 1;j < allResult.length ;j++){
+                for(var j = 1; j < allResult.length; j++){
                     var re =  /\{\s*([a-zA-Z\u4E00-\u9FA5\.\_0-9()]+)\s*\}/g;
                     var res = re.exec(allResult[j]);
 
-                    for(var k = 0;k< data.length;k++){
+                    for(var k = 0; k< model.length; k++){
 
-                        if(data[k].name == res[1]){
-                            noteBook = data[k];
+                        if(model[k].name == groupName){
+                            noteBook = model[k];
                         }
                     }
                 }
@@ -165,7 +163,7 @@ function Template(contentId){
                         var re =  /\{\s*([a-zA-Z\u4E00-\u9FA5\.\_0-9()]+)\s*\}/g;
                         var res = re.exec(allResult[2]);
 
-                        if(noteBook.noteStore[c].title == res[1]){
+                        if(noteBook.noteStore[c].title == noteTitle){
                             content = content.replace(allResult[2],noteBook.noteStore[c].content);
                         }
                     }

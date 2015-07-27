@@ -42,7 +42,7 @@ var data = [];
  * ==================================================
  * */
 function initData(data) {
-    var notebooks = ['常用分组', '成长笔记', '技术记录', 'Baidu-ife'];
+    var notebooks = ['常用分组1', '成长笔记', '技术记录', 'Baidu-ife'];
     var notes = ['这我的一个笔记', '这我的一个笔记', '这我的一个笔记', '这我的一个笔记', '这我的一个笔记'];
     var content = '我们要让每段文字开头缩进，并且可以控制缩进距离我使用text-indent缩进单词。如果不想使用text-indent样式进行缩进，我可以使用空格来实现，但需要多打几个html空格字符“&nbsp;”实现空格字符占位缩进，你可以详细了解html多空格字符应用。';
     notebooks.forEach(function (val, i) {
