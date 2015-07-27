@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>烂笔头-gleaner</title>
+
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+</head>
+<body>
+
+<!-- Main DIV -->
+<div class="main">
+    <!-- notes group list -->
+    <div class="main-left">
+        <!-- logo -->
+        <div class="left-head">
+            <div class="logo">
+                <h1 class="logo-world">烂</h1>
+            </div>
+        </div>
+        <!-- group list -->
+        <ul id="group-list" class="group-list"></ul>
+        <!-- group list footer -->
+        <div class="group-list-footer">
+            <!-- add button -->
+            <div class="add-group">
+                <div id="add-btn" class="add-group-btn" title="添加分组"></div>
+                <input id="new-group-name" class="name-input" maxlength="20"/>
+            </div>
+            <!-- delete button -->
+            <div id="delete-group-btn" class="delete-group-btn"></div>
+        </div>
+
+    </div>
+
+    <!-- notes title list -->
+    <div class="main-middle">
+        <!-- note list top -->
+        <div class="note-list-top">
+            <h2 id="group-name" class="group-name"></h2>
+            <button id="new-note-btn" class="new-note-btn" type="button">
+                <span class="new-note-btn-icon">+</span>
+                新建笔记
+            </button>
+        </div>
+
+        <!-- note list -->
+        <ul id="note-list" class="note-list"></ul>
+    </div>
+
+    <!-- notes content -->
+    <div class="main-right">
+        <!-- note tool bar -->
+        <div class="note-content-top">
+            <div id="note-content-delete" class="note-content-delete"></div>
+            <div id="note-content-edit" class="note-content-edit"></div>
+            <div id="note-content-save" class="note-content-save"></div>
+        </div>
+
+        <!-- note content -->
+        <div class="note-content">
+            <input id="note-content-title" class="note-content-title" type="text"/>
+            <!--<textarea id="note-content-main" class="note-content-main"></textarea>-->
+            <textarea id="text-input" class="note-content-main" cols="30" rows="10">Type **Markdown** here.</textarea>
+            <div id="preview" class="preview"></div>
+        </div>
+    </div>
+</div>
+
+<!--========================第三方类库==================================-->
+<script src="../lib/jquery2_1_4.js" type="application/javascript"></script>
+<script src="../lib/marked.js" type="application/javascript"></script>
+<script src="../scripts/preview.js" type="application/javascript"></script>
+
+<!--=========================数据处理脚本文件============================-->
+<!--<script src="../scripts/model.js"></script>-->
+<!--<script src="../data/data.js"></script>-->
+
+<!--=======================功能性脚本文件==============================-->
+<script src="../scripts/saveData.js" type="application/javascript"></script>
+<script src="../scripts/singleTemplate.js" type="application/javascript"></script>
+<script src="../scripts/main.js" type="application/javascript"></script>
+<script src="../lib/marked.js" type="application/javascript"></script>
+
+<!-- 分组列表模板 -->
+<script id="group" type="text/plain">
+     <li><a class="group-item">{eachNoteBook}<span class="notes-count">({NoteNum})</span></a></li>
+</script>
+
+<!-- 笔记列表模板 -->
+<script id="note-list-temp" type="text/plain">
+    {eachNote}{groupName}
+     <li class="note-item">
+        <div class="note-item-top">
+            <h5 class="note-item-title">{title}</h5>
+            <p class="note-item-date">{time}</p>
+        </div>
+        <p class="note-item-content">
+            {content}
+        </p>
+    </li>
+</script>
+
+</body>
+</html>
